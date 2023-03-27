@@ -5,13 +5,34 @@
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@300&display=swap" rel="stylesheet">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+
 	<style>
    
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 50px;
+  text-align: center;
+  text-decoration: none;
+  color: rgba(195,7,63,1)
+}
+
+
+.fa:hover {
+  opacity: 0.7;
+}
+
+
   
      
 h1 {
-         font-family: Raleway } 
-         h1 {color: rgba(195,7,63,1)
+         font-family: Raleway;
+         color: rgba(195,7,63,1);
+         font-size: 75px
       }
       h2 {
          font-family: Raleway
@@ -27,16 +48,86 @@ background: linear-gradient(90deg, rgba(195,7,63,1) 0%, rgba(26,26,29,1) 10%, rg
 			height: 100%;
             
 		}
-	
+
+
+.container {
+  width: 80%;
+  
+  margin: 50px auto;
+}
+
+button.accordion {
+  width: 100%;
+  background-color: rgba(245, 245, 245, 0);
+  border: none;
+  outline: none;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 40px;
+  color: rgba(149,7,64,1);
+  font-family: Raleway;
+ 
+  cursor: pointer;
+  transition: background-color 0.2s linear;
+}
+
+button.accordion:after {
+  font-family: FontAwesome;
+  content: "\f078";
+  font-family: "fontawesome";
+  font-size: 18px;
+  float: right;
+}
+
+button.accordion.is-open:after {
+  content: "\f077";
+}
+
+button.accordion:hover
+{
+  background-color:rgba(255, 255, 255, 0.226)
+}
+button.accordion.is-open {
+  background-color:rgba(0, 0, 0, 0)
+}
+
+.accordion-content {
+  background-color: rgba(255, 255, 255, 0);
+  border-left: 1px solid rgba(245, 245, 245, 0);
+  border-right: 1px solid rgba(245, 245, 245, 0);
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+
+#logo {
+        position: relative;
+    }
+    #logo img {
+        position: absolute;
+        top: -25px;
+        left: 75px;
+    }
+
 	</style>
 </head>
 <body>
-	<h1>Eetu Mahlakaarto Portfolio</h1>
-	<h2>3D Models</h2>
-	
-	<!-- Sketchfab embed code -->
+  
+  <img src="https://media.discordapp.net/attachments/804392372192542721/1090030097114869920/New_Project.png?width=702&height=702"
+    width="250" 
+       height="250">
+      
+  
 
-    <div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="Multiple Assets For Us Lucky Ones" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/341ad7ba09da465d8a97f83da5ebb5f6/embed"> </iframe> </div>
+      
+  <div class="container">
+    
+  
+    <button class="accordion">3D Models</button>
+    <div class="accordion-content">
+      <div>
+        <div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="Multiple Assets For Us Lucky Ones" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/341ad7ba09da465d8a97f83da5ebb5f6/embed"> </iframe> </div>
     <div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="Semi-Futuristic Boba" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/0084fa0a7ec14a05be033f912f722f13/embed"> </iframe> </div>
 	<div class="sketchfab-embed-wrapper"><div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="WolfboiStitch" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/82aedc5bd985432a89e0dbf944ba00e3/embed"> </iframe> </div>
     <div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="Syringe" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/14fbe7f3c338469180ec8f029392d9d2/embed"> </iframe> </div>
@@ -47,21 +138,54 @@ background: linear-gradient(90deg, rgba(195,7,63,1) 0%, rgba(26,26,29,1) 10%, rg
     <div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="Futuristic burger wrapper" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/0941bd816192473eabd066bc726a9047/embed"> </iframe> </div>
 	<div class="sketchfab-embed-wrapper"> <iframe iframe width="750" height="500" title="Mealpack" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/28b1551064a14f4583d47ac33f673664/embed"> </iframe> </div>
 	<div class="sketchfab-embed-wrapper"> <iframe width="750" height="500" title="Z4P-ShockRifle" frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport execution-while-not-rendered web-share src="https://sketchfab.com/models/73d0261adee643dd80b3953a15494f1b/embed"> </iframe> </div>
-   
-		<h2>Youtube Videos</h2>
-    <iframe width="750" height="500" src="https://www.youtube.com/embed/Vth1loK9dqg" title="IJWIP070222" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+  </div></div>
+    </div>
+  
+    <button class="accordion">Youtube Videos</button>
+    <div class="accordion-content">
+      <iframe width="750" height="500" src="https://www.youtube.com/embed/Vth1loK9dqg" title="IJWIP070222" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe width="750" height="500" src="https://www.youtube.com/embed/rGiOLGQopu4" title="Flight demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe width="750" height="500" src="https://www.youtube.com/embed/Y40eoFGOriM" title="Survival game demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe width="750" height="500" src="https://www.youtube.com/embed/KB19Kb2K4uU" title="Demo Of Us Lucky Ones" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe width="750" height="500" src="https://www.youtube.com/embed/eei_Ot4xOzw" title="Vrc World Demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <iframe width="750" height="500" src="https://www.youtube.com/embed/pVHuFcta_AY" title="Axolotl model demo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-<h2>Renders</h2>
-<a href="https://i.pinimg.com/originals/36/a3/29/36a32931b2bbd9fb42d6e1e48a65bdda.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/36/a3/29/36a32931b2bbd9fb42d6e1e48a65bdda.jpg">
-<a href="https://i.pinimg.com/originals/1f/a8/c7/1fa8c7a0d6511871bddc45a15a92fa5d.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/1f/a8/c7/1fa8c7a0d6511871bddc45a15a92fa5d.jpg">
-<a href="https://i.pinimg.com/originals/9b/99/ac/9b99acefd42e17ab534b1e80485c77a5.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/9b/99/ac/9b99acefd42e17ab534b1e80485c77a5.jpg">
-<a href="https://i.pinimg.com/originals/06/60/90/0660902ed5a9370d9a7283f8d7e17cb6.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/06/60/90/0660902ed5a9370d9a7283f8d7e17cb6.jpg">
 
+    </div>
+  
+    <button class="accordion">Renders</button>
+    <div class="accordion-content">
+      <a href="https://i.pinimg.com/originals/36/a3/29/36a32931b2bbd9fb42d6e1e48a65bdda.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/36/a3/29/36a32931b2bbd9fb42d6e1e48a65bdda.jpg"></a>
+      <a href="https://i.pinimg.com/originals/1f/a8/c7/1fa8c7a0d6511871bddc45a15a92fa5d.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/1f/a8/c7/1fa8c7a0d6511871bddc45a15a92fa5d.jpg"></a>
+      <a href="https://i.pinimg.com/originals/9b/99/ac/9b99acefd42e17ab534b1e80485c77a5.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/9b/99/ac/9b99acefd42e17ab534b1e80485c77a5.jpg"></a>
+      <a href="https://i.pinimg.com/originals/06/60/90/0660902ed5a9370d9a7283f8d7e17cb6.jpg"><img width="750" height="421.88" src="https://i.pinimg.com/originals/06/60/90/0660902ed5a9370d9a7283f8d7e17cb6.jpg"></a>
+    </div>
+  </div>
 
+	
+	
 
+<h2>Links</h2>
+
+  <a href="https://www.instagram.com/sappyeddie/" target="_blank" class="fa fa-instagram"></a>
+  <a href="https://www.etsy.com/shop/SappyEddies" target="_blank" class="fa fa-etsy"></a>
 </body>
+<script>const accordionBtns = document.querySelectorAll(".accordion");
+
+  accordionBtns.forEach((accordion) => {
+    accordion.onclick = function () {
+      this.classList.toggle("is-open");
+  
+      let content = this.nextElementSibling;
+      console.log(content);
+  
+      if (content.style.maxHeight) {
+        //this is if the accordion is open
+        content.style.maxHeight = null;
+      } else {
+        //if the accordion is currently closed
+        content.style.maxHeight = content.scrollHeight + "px";
+        console.log(content.style.maxHeight);
+      }
+    };
+  });</script>
 </html>
