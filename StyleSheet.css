@@ -28,10 +28,15 @@ h1 {
       }
       
       h2 {
-        color: rgba(149,7,64,1);
+        color: rgba(195,7,63,1);
         font-family: "Iceland";
         font-size: 25px;
+        text-shadow: 
         
+        1px 1px 0 #000000;
+
+       
+       
       }
 		body {
       background-color: #1a1a1d;
@@ -123,9 +128,15 @@ button.accordion.is-open {
   
 }
 
-.render {
+img.render {
   width: 750px;
   height: 421.88px;
+  cursor: pointer;
 }
+.render:hover {
+  opacity: 0,75;
+}
+
+
 
     
