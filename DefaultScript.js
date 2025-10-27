@@ -1,17 +1,34 @@
-// === Accordion Toggle System ===
-const accordionBtns = document.querySelectorAll(".accordion");
+const accordions = document.querySelectorAll(".accordion");
 
-accordionBtns.forEach((btn) => {
-  btn.addEventListener("click", () => {
-    // Toggle this accordion
-    btn.classList.toggle("is-open");
+accordions.forEach(acc => {
+  const content = acc.nextElementSibling;
 
-    let content = btn.nextElementSibling;
+  acc.addEventListener("click", () => {
+    const isOpen = acc.classList.toggle("is-open");
 
-    if (btn.classList.contains("is-open")) {
+    // Auto-close others
+    accordions.forEach(other => {
+      if (other !== acc) {
+        other.classList.remove("is-open");
+        other.nextElementSibling.style.maxHeight = 0;
+      }
+    });
+
+    // Open/close clicked one
+    if (isOpen) {
       content.style.maxHeight = content.scrollHeight + "px";
     } else {
-      content.style.maxHeight = null;
+      content.style.maxHeight = 0;
     }
+  });
+
+  // ✅ When iframes load → re-measure height
+  const iframes = content.querySelectorAll("iframe");
+  iframes.forEach(frame => {
+    frame.addEventListener("load", () => {
+      if (acc.classList.contains("is-open")) {
+        content.style.maxHeight = content.scrollHeight + "px";
+      }
+    });
   });
 });

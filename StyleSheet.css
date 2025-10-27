@@ -67,56 +67,225 @@ h2 {
 }
 
 /* === ACCORDION === */
+/* ACCORDION HEADER (MATCH MECHA PANEL STYLE) */
+/* === ACCORDION HEADER === */
 .accordion {
   width: 100%;
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(8px);
-  padding: 25px 0;
-  border: none;
-  cursor: pointer;
-  border-top: 1px solid var(--neon-pink-soft);
+  background: rgba(10, 10, 14, 0.65);
+  border: 1px solid rgba(195, 7, 63, 0.35);
+  padding: 14px 18px;
+  margin-top: 24px;
   text-align: center;
-  transition: 0.3s;
+  font-family: "Iceland", sans-serif;
+  font-size: 28px;
+  letter-spacing: 2px;
+  color: var(--neon-pink);
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 0;
+  position: relative;
+  transition: border-color .25s, box-shadow .25s, background .25s;
+  overflow: visible; /* so scan line is visible */
 }
-.accordion:hover { background: rgba(255,255,255,0.05); box-shadow: var(--glow-soft); }
-.accordion.is-open { background: rgba(255,255,255,0.07); }
 
-/* === ACCORDION CONTENT === */
-.accordion-content {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.45s ease-out;
-  border-bottom: 1px solid var(--neon-pink-soft);
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(6px);
-  padding: 0;
+.accordion:hover {
+  border-color: rgba(195, 7, 63, 0.65);
+  box-shadow: 0 0 16px rgba(195, 7, 63, 0.45);
 }
-.accordion.is-open + .accordion-content { padding: 20px 0 40px 0; }
+
+/* FRAME OUTLINE */
+.accordion::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 1px solid rgba(195, 7, 63, 0.18);
+  pointer-events: none;
+}
+
+/* STATIC BASELINE */
+.accordion::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(
+    to right,
+    rgba(195,7,63,0.05),
+    rgba(195,7,63,0.20),
+    rgba(195,7,63,0.05)
+  );
+  pointer-events: none;
+}
+
+/* ACTIVE (OPEN) HEADER STATE */
+.accordion.is-open {
+  background: rgba(195,7,63,0.08);
+  box-shadow: 0 0 18px rgba(195, 7, 63, 0.4);
+  border-color: rgba(195, 7, 63, 0.7);
+}
+
+/* MOVING SCAN BAR — FIXED! */
+.accordion.is-open .scan-bar {
+  width: 40%;
+  height: 2px;
+  position: absolute;
+  bottom: -2px;
+  left: -20%;
+  background: var(--neon-pink);
+  box-shadow: 0 0 12px var(--neon-pink);
+  animation: hudScan 2.2s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes hudScan {
+  0%   { transform: translateX(0%);   opacity: 0.2; }
+  50%  { transform: translateX(160%); opacity: 1; }
+  100% { transform: translateX(300%); opacity: 0; }
+}
+
+/* === COLLAPSING PANEL FIX === */
+.accordion-content {
+  display: none; 
+  background: rgba(5, 5, 8, 0.75);
+  border-left: 1px solid rgba(195, 7, 63, 0.25);
+  border-right: 1px solid rgba(195, 7, 63, 0.25);
+  border-bottom: 1px solid rgba(195, 7, 63, 0.25);
+  padding: 0;                 /* ✅ No space when closed */
+  max-height: 0;              /* ✅ Fully collapsed */
+  overflow: hidden;
+  transition: max-height .45s ease, padding .35s ease;
+}
+
+.accordion.is-open + .accordion-content {
+  display: block; 
+  padding: 24px;              /* ✅ Only add padding when open */
+}
+
+
+.contact-hud {
+  margin-top: 100px;
+  padding: 40px 0 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  background: rgba(5, 5, 8, 0.4);
+  border-top: 1px solid rgba(195,7,63,0.25);
+}
+
+/* Logo Badge */
+.contact-badge img {
+  width: 120px;
+  height: 120px;
+  filter: drop-shadow(0 0 18px var(--neon-pink));
+  animation: badgePulse 4s ease-in-out infinite;
+}
+
+@keyframes badgePulse {
+  0%,100% { filter: drop-shadow(0 0 10px var(--neon-pink)); opacity: 0.85; }
+  50%     { filter: drop-shadow(0 0 28px var(--neon-pink)); opacity: 1; }
+}
+
+/* Text Block */
+.contact-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-family: "Iceland", sans-serif;
+  color: var(--neon-pink);
+  letter-spacing: 2px;
+}
+
+/* HUD Title */
+.contact-label {
+  font-size: 18px;
+  opacity: 0.7;
+}
+
+/* Link Style */
+.contact-link {
+  font-size: 26px;
+  text-transform: uppercase;
+  position: relative;
+  padding-left: 12px;
+  transition: color 0.3s, text-shadow 0.3s;
+    color: var(--neon-pink);
+}
+
+/* Hover Neon Glow */
+.contact-link:hover {
+  color: var(--neon-pink);
+  text-shadow:
+    0 0 4px var(--neon-pink),
+    0 0 12px var(--neon-pink),
+    0 0 22px var(--neon-pink);
+}
+
+
+/* Animated Scan Line on Hover */
+.contact-link::after {
+  content: attr(data-code);
+  font-size: 12px;
+  opacity: 0;
+  color: var(--neon-pink);
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: opacity .3s, right .3s;
+}
+
+.contact-link:hover::after {
+  opacity: 0.9;
+  right: -95px;
+}
+
 
 /* === MECHA HOLO PANELS === */
 .mecha-panel {
+  background: rgba(10, 10, 14, 0.65);
+  border: 1px solid rgba(195, 7, 63, 0.35);
+  padding: 18px;
   position: relative;
-  padding: 45px 35px;
-  margin: 50px auto;
-  border: 2px solid var(--neon-pink-soft);
-  border-left-width: 6px;
-  background: rgba(255,255,255,0.03);
-  backdrop-filter: blur(8px);
-  clip-path: polygon(
-    0% 10%, 10% 0%, 90% 0%, 100% 10%,
-    100% 90%, 90% 100%, 10% 100%, 0% 90%
-  );
-  box-shadow: 0 0 25px rgba(195,7,63,0.35);
-  transform-style: preserve-3d;
-  transition: 0.35s cubic-bezier(.25,.46,.45,.94);
+  overflow: visible;
+  border-radius: 0;
+  display: flex;              /* ✅ allows proper auto-height */
+  flex-direction: column;     /* ✅ stacks HUD + iframe correctly */
+  gap: 12px;                  /* space between HUD label + iframe */
+}
+
+/* Keep the holographic panel frame effect */
+.mecha-panel::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border: 1px solid rgba(195, 7, 63, 0.18);
+  pointer-events: none;
 }
 
 .mecha-panel:hover {
-  transform: translateY(-6px) translateZ(18px) rotateX(1deg);
-  box-shadow: 0 0 60px rgba(195,7,63,0.9);
-  border-color: var(--neon-pink);
-  animation: glitch-flicker 0.3s steps(2, jump-end);
+  border-color: rgba(195, 7, 63, 0.65);
+  box-shadow: 0 0 16px rgba(195, 7, 63, 0.45);
+  transition: border-color 0.25s, box-shadow 0.25s;
 }
+
+/* ✅ Responsive iframe scaling with NO cropping */
+.mecha-panel iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;       /* enforce correct display scaling */
+  display: block;
+  border: none;
+}
+
+/* If some models should be taller (Sketchfab style) */
+@media (min-width: 900px) {
+  .mecha-panel iframe {
+    aspect-ratio: 16 / 10;    /* Slightly taller ratio on desktop */
+  }
+}
+
 
 /* === HUD LABELS === */
 .hud-label {
@@ -139,6 +308,12 @@ h2 {
   color: rgba(195,7,63,0.6);
   text-shadow: 0 0 8px rgba(195,7,63,0.3);
   user-select: none;
+}
+
+.panel-grid iframe {
+  aspect-ratio: 16 / 10;
+  max-width: 100%;
+  border: none;
 }
 
 /* === IFRAME PANELS === */
@@ -202,41 +377,40 @@ a:hover, button:hover, .accordion:hover, .mecha-panel:hover, iframe:hover {
 }
 
 /* Main Logo SVG Coloring */
+/* MAIN LOGO */
 .holo-logo {
   width: 250px;
   height: auto;
-  color: var(--neon-pink);
+  display: block;
+  margin: 0 auto;
+  color: var(--neon-pink); /* this now colors the SVG */
   mix-blend-mode: screen;
   filter: drop-shadow(0 0 22px var(--neon-pink));
   animation: logoPulse 4s ease-in-out infinite;
-}
-
-/* Halo wrapper (this is now where the glow lives) */
-.holo-logo-wrapper {
   position: relative;
-  display: inline-block;
 }
 
-/* Actual halo glow — now correctly behind SVG */
-.holo-logo-wrapper::before {
+/* Circular hologram glow behind logo */
+.holo-logo::before {
   content: "";
   position: absolute;
   top: 50%; left: 50%;
-  width: 350px;
-  height: 350px;
+  width: 350px; height: 350px;
   transform: translate(-50%, -50%);
   border-radius: 50%;
   background: radial-gradient(
-      circle,
-      rgba(195,7,63,0.35) 0%,
-      rgba(195,7,63,0.14) 45%,
-      transparent 70%
+    circle,
+    rgba(195,7,63,0.35) 0%,
+    rgba(195,7,63,0.14) 45%,
+    transparent 70%
   );
   filter: blur(60px);
   pointer-events: none;
   animation: haloPulse 6s ease-in-out infinite;
   z-index: -1;
 }
+
+
 
 @keyframes haloPulse {
   0%,100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
