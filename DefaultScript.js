@@ -1,19 +1,17 @@
+// === Accordion Toggle System ===
 const accordionBtns = document.querySelectorAll(".accordion");
 
-  accordionBtns.forEach((accordion) => {
-    accordion.onclick = function () {
-      this.classList.toggle("is-open");
-  
-      let content = this.nextElementSibling;
-      console.log(content);
-  
-      if (content.style.maxHeight) {
-        //this is if the accordion is open
-        content.style.maxHeight = null;
-      } else {
-        //if the accordion is currently closed
-        content.style.maxHeight = content.scrollHeight + "px";
-        console.log(content.style.maxHeight);
-      }
-    };
+accordionBtns.forEach((btn) => {
+  btn.addEventListener("click", () => {
+    // Toggle this accordion
+    btn.classList.toggle("is-open");
+
+    let content = btn.nextElementSibling;
+
+    if (btn.classList.contains("is-open")) {
+      content.style.maxHeight = content.scrollHeight + "px";
+    } else {
+      content.style.maxHeight = null;
+    }
   });
+});

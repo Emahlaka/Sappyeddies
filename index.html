@@ -1,219 +1,182 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
 
   <title>Portfolio</title>
-  <link rel="icon" href="Images/logo.png">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre Barcode 39 Text" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Iceland" rel="stylesheet">
-  <!-- Add icon library -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Favicon (PNG stays) -->
+  <link rel="icon" type="image/png" href="Images/logo.png">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Barcode+39+Text&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Iceland&display=swap" rel="stylesheet">
+
+  <!-- Icons & Animations -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+  <!-- Main stylesheet -->
   <link href="StyleSheet.css" rel="stylesheet">
- 
 
-
+  <!-- Grid Layout -->
+  <style>
+    .panel-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+    @media (min-width: 900px) { .panel-grid { grid-template-columns: 1fr 1fr; } }
+  </style>
 
 </head>
 
 <body>
-  ☰
-  <div class="container">
-    <div class="container logo">
-      <div class="animate__animated animate__slideInDown">
-        <div class=corner1>
-          <img src="Images/corner.png" width="25" ; height="25" ;>
+
+  <!-- Hologram noise -->
+  <div class="holo-noise"></div>
+
+<!-- Boot Loader -->
+<div id="holo-load">
+  <img src="Images/Portfolio logo.svg" alt="Portfolio Logo" class="holo-logo">
+  <span>Initializing Visual Systems…</span>
+</div>
+
+<!-- Page Logo -->
+<div class="logo animate__animated animate__slideInDown" style="margin-top:40px;">
+  <img src="Images/Portfolio logo.svg" alt="Portfolio Logo" class="holo-logo">
+</div>
+
+</div>
+
+
+  <div class="content animate__animated animate__slideInUp">
+
+    <!-- 3D MODELS -->
+    <button class="accordion"><h1 class="type-boot">3D Models</h1></button>
+    <div class="accordion-content">
+      <span class="hud-label">Model System / Sketchfab Streams</span>
+
+      <div class="panel-grid">
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.883</div>
+          <iframe src="https://sketchfab.com/models/bbe635694e304f0b8a63f4e9e01f284b/embed" allowfullscreen></iframe>
         </div>
-        <div class=corner2>
-          <img src="Images/corner.png" width="25" ; height="25" ;>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.884</div>
+          <iframe src="https://sketchfab.com/models/0fc79f071252408ab1c18e9fe50b1ed7/embed" allowfullscreen></iframe>
         </div>
-        <img src="Images/Portfolio logo.png" width="250" height="250">
-        <div class=corner3>
-          <img src="Images/corner.png" width="25" ; height="25" ;>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.885</div>
+          <iframe src="https://sketchfab.com/models/bc1bc400e9f947858249b109524f77d7/embed" allowfullscreen></iframe>
         </div>
-        <div class=corner4>
-          <img src="Images/corner.png" width="25" ; height="25" ;>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.886</div>
+          <iframe src="https://sketchfab.com/models/cd5e66b31a0c43f69735887321a35fb5/embed" allowfullscreen></iframe>
         </div>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.887</div>
+          <iframe src="https://sketchfab.com/models/73d0261adee643dd80b3953a15494f1b/embed" allowfullscreen></iframe>
+        </div>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.888</div>
+          <iframe src="https://sketchfab.com/models/391e8df17e8c4e0094016f878b0aae08/embed" allowfullscreen></iframe>
+        </div>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.889</div>
+          <iframe src="https://sketchfab.com/models/d926a42f79244a21a3d8c0ec0a463f34/embed" allowfullscreen></iframe>
+        </div>
+
+        <div class="mecha-panel"><div class="hud-id">SYS-LNK:04.890</div>
+          <iframe src="https://sketchfab.com/models/3ece94895e6e497db24fe9889721aca4/embed" allowfullscreen></iframe>
+        </div>
+
       </div>
     </div>
-    <div class="container">
-      <div class="animate__animated animate__slideInUp">
-        
 
+    <!-- VIDEOS -->
+    <button class="accordion"><h1 class="type-boot">Videos and Renders</h1></button>
+    <div class="accordion-content">
+      <span class="hud-label">Cinematic Memory Archives</span>
 
+      <div class="panel-grid">
 
-        <button class="accordion">
-          <h1>3D Models</h1>
-        </button>
-        <div class="accordion-content">
-        <iframe width="100%" height="750px"  title="Tech Pickaxe" 
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport 
-                  execution-while-not-rendered web-share src="https://sketchfab.com/models/bbe635694e304f0b8a63f4e9e01f284b/embed"> 
-                  </iframe> 
-        <iframe width="100%" height="750px"  title="Tech Bow" 
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport 
-                  execution-while-not-rendered web-share src="https://sketchfab.com/models/0fc79f071252408ab1c18e9fe50b1ed7/embed"> 
-                  </iframe> 
-            <iframe width="100%" height="750px"  title="Tech Axe" 
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport 
-                  execution-while-not-rendered web-share src="https://sketchfab.com/models/bc1bc400e9f947858249b109524f77d7/embed"> 
-                  </iframe> 
-      <iframe width="100%" height="750px"  title="Miner's Pack" 
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true" 
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport 
-                  execution-while-not-rendered web-share src="https://sketchfab.com/models/cd5e66b31a0c43f69735887321a35fb5/embed"> 
-                  </iframe> 
-             <iframe width="100%" height="750px" title="Z4P-ShockRifle"
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-                  execution-while-not-rendered web-share
-                  src="https://sketchfab.com/models/73d0261adee643dd80b3953a15494f1b/embed"> </iframe>
-                   <iframe width="100%" height="750px" title="A Stylized Male"
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-                  execution-while-not-rendered web-share
-                  src="https://sketchfab.com/models/391e8df17e8c4e0094016f878b0aae08/embed"> </iframe>
-            <iframe width="100%" height="750px" title="Kitsune Kemono Fox" 
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-                  execution-while-not-rendered web-share
-                  src="https://sketchfab.com/models/d926a42f79244a21a3d8c0ec0a463f34/embed"> </iframe>
-          <iframe width="100%" height="750px" title="Stitch" 
-                  frameborder="0" allowfullscreen mozallowfullscreen="true" webkitallowfullscreen="true"
-                  allow="autoplay; fullscreen; xr-spatial-tracking" xr-spatial-tracking execution-while-out-of-viewport
-                  execution-while-not-rendered web-share
-                  src="https://sketchfab.com/models/3ece94895e6e497db24fe9889721aca4/embed"> </iframe>
-            
-          
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:77</div>
+          <h2>Pre-Alpha Survival Game</h2>
+          <iframe src="https://www.youtube.com/embed/Y40eoFGOriM" allowfullscreen></iframe>
         </div>
 
-        <button class="accordion">
-          <h1>Videos and Renders</h1>
-        </button>
-        <div class="accordion-content">
-          
-          <h2>A PrePreAlpha footage of a highly w.i.p. survival game project made in UE5</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/Y40eoFGOriM" title="Survival game demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/KB19Kb2K4uU" title="Demo Of Us Lucky Ones"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-            <h2>Pre Pre Alpha of a game I am making with my wife in UE5</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/mE1x-6qeUCU" title="Unnamed Game Pre Pre Alpha"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-          <h2>Video of a world that I made to a social VR game in unity all the 3D assets are created by me.</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/eei_Ot4xOzw" title="Vrc World Demo"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-               <h2>Trailer For VR space ship game made in UE5</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/jP15ZN2lczs" title="NovaRunAsteroidTrailer"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-                <h2>Trailer For VR space zero gravity endless game made in UE5</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/xnISadN3nk0" title="NovaRun VR Game Trailer" 
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen>
-              
-        
-          </iframe>
-          <h2>Street Side Sign Animation</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/_3rdXTfVjlU" title="Animation ULO menu BG"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            allowfullscreen></iframe>
-            <h2>LogoaNimation</h2>
-            <iframe width="100%" height="750px" src="https://www.youtube.com/embed/OQEx_liq1QA" title="NeonFoxLogoAnimation" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      
-           <h2>My Eternal Ascent</h2>
-          <iframe width="478" height="849" src="https://www.youtube.com/embed/PiIf5e8mhyo" title="CyberCity"
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-              <h2>My KineticRush</h2>
-          <iframe width="478" height="849" src="https://www.youtube.com/embed/uWJrthV6zvY" title="Kinetic Rush Facility Escape" 
-            frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-        
-            </div>
-                
-                <button class="accordion">
-                   <h1>Commisions and Other Products</h1>
-                      </button>
-        <div class="accordion-content">
-         
-              <div class='sk-ww-etsy-shop' data-embed-id='25508522'></div><script src='https://widgets.sociablekit.com/etsy-shop/widget.js' defer></script>
-          <script src="https://gumroad.com/js/gumroad-embed.js"></script>
-<div class="gumroad-product-embed"><a href="https://sappyeddie8.gumroad.com/l/KemonoFox">Loading...</a></div>
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:78</div>
+          <iframe src="https://www.youtube.com/embed/KB19Kb2K4uU" allowfullscreen></iframe>
         </div>
-              
-              </div>
-      
-          </section>
+
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:79</div>
+          <h2>UE5 Project (with wife)</h2>
+          <iframe src="https://www.youtube.com/embed/mE1x-6qeUCU" allowfullscreen></iframe>
         </div>
-        
-        <div class="div-1">
-          <div class="animate__animated animate__fadeIn">
-            <div class="animate__animated animate__slideInUp">
-              <div class=corner1>
-                <img src="Images/corner.png" width="25" ; height="25" ;>
-              </div>
-              <div class=corner2>
-                <img src="Images/corner.png" width="25" ; height="25" ;>
-              </div>
 
-              <h2>Links</h2>
-              <a href="https://www.instagram.com/sappyeddie/" target="_blank" class="fa fa-instagram"></a>
-              <a href="https://www.etsy.com/shop/SappyEddies" target="_blank" class="fa fa-etsy"></a>
-              
-              <h2> Sappyeddies@gmail.com </h2>
-              
-              <div class=corner3>
-                <img src="Images/corner.png" width="25" ; height="25" ;>
-              </div>
-              <div class=corner4>
-                <img src="Images/corner.png" width="25" ; height="25" ;>
-              </div>
-            
-            </div>
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:80</div>
+          <h2>VR Social World</h2>
+          <iframe src="https://www.youtube.com/embed/eei_Ot4xOzw" allowfullscreen></iframe>
+        </div>
 
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:81</div>
+          <h2>VR Space Game Trailer</h2>
+          <iframe src="https://www.youtube.com/embed/jP15ZN2lczs" allowfullscreen></iframe>
+        </div>
 
-           
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:82</div>
+          <h2>Zero-G VR</h2>
+          <iframe src="https://www.youtube.com/embed/xnISadN3nk0" allowfullscreen></iframe>
+        </div>
 
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:83</div>
+          <h2>Street Sign Animation</h2>
+          <iframe src="https://www.youtube.com/embed/_3rdXTfVjlU" allowfullscreen></iframe>
+        </div>
 
-            </div>
+        <div class="mecha-panel"><div class="hud-id">ARCHIVE-F:84</div>
+          <h2>Logo Animation</h2>
+          <iframe src="https://www.youtube.com/embed/OQEx_liq1QA" allowfullscreen></iframe>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COMMISSIONS -->
+    <button class="accordion"><h1 class="type-boot">Commissions and Other Products</h1></button>
+    <div class="accordion-content">
+      <span class="hud-label">External Resource Terminal</span>
+
+      <div class="panel-grid">
+
+        <div class="mecha-panel"><div class="hud-id">MARKET-ETSY</div>
+          <div class='sk-ww-etsy-shop' data-embed-id='25508522'></div>
+          <script src='https://widgets.sociablekit.com/etsy-shop/widget.js' defer></script>
+        </div>
+
+        <div class="mecha-panel"><div class="hud-id">MARKET-GUM</div>
+          <script src="https://gumroad.com/js/gumroad-embed.js" defer></script>
+          <div class="gumroad-product-embed">
+            <a href="https://sappyeddie8.gumroad.com/l/KemonoFox">Loading...</a>
           </div>
         </div>
 
-
-
       </div>
+
     </div>
-  
-  
 
+  </div>
 
+  <!-- FOOTER -->
+  <footer class="animate__animated animate__slideInUp" style="margin-top:80px; text-align:center; padding-bottom:40px;">
+    <h2>Links</h2>
+    <a href="https://www.instagram.com/sappyeddie/" target="_blank" class="fa fa-instagram"></a>
+    <a href="https://www.etsy.com/shop/SappyEddies" target="_blank" class="fa fa-etsy"></a>
+    <h2>Sappyeddies@gmail.com</h2>
+  </footer>
 
-
-
+  <!-- Scripts -->
   <script src="DefaultScript.js"></script>
   <script src="ViewerScript.js"></script>
 
-
-
-
 </body>
-
 </html>

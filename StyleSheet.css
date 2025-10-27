@@ -1,43 +1,22 @@
-   
-   .div-1 {
-  padding: 50px;
-}
-.fa {
-  padding: 20px;
-  font-size: 30px;
-  width: 50px;
-  text-align: center;
-  text-decoration: none;
-  color: rgba(149,7,64,1);
+/* === COLOR VARIABLES === */
+:root {
+  --neon-pink: rgba(195,7,63,1);
+  --neon-pink-soft: rgba(195,7,63,0.45);
+  --glow: 0 0 20px var(--neon-pink);
+  --glow-soft: 0 0 10px var(--neon-pink-soft);
 }
 
-
-.fa:hover {
-  opacity: 0.7;
+/* === BASE BODY STYLE === */
+body {
+  margin: 0;
+  padding: 0;
+  color: #fff;
+  background-color: #111;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
 }
 
-
-  
-     
-h1 {
-         font-family: "Libre Barcode 39 Text";
-         color: rgba(195,7,63,1);
-         font-size: 45px;
- 
-  
-      }
-      
-      h2 {
-        color: rgba(195,7,63,1);
-        font-family: "Iceland";
-        font-size: 25px;
-        text-shadow: 
-        
-        1px 1px 0 #000000;
-
-       
-       
-      }
 		body {
       background-color: #1a1a1d;
 opacity: 1;
@@ -54,90 +33,242 @@ text-align: center;
 		}
 
 
-.container {
-  width: 80%;
-  
-  margin: 50px auto;
-}
-
-button.accordion {
-  width: 100%;
-  background-color: rgba(245, 245, 245, 0);
-  border: none;
-  outline: none;
+/* === TYPOGRAPHY === */
+h1 {
+  font-family: "Libre Barcode 39 Text";
+  font-size: 50px;
+  color: var(--neon-pink);
+  margin: 20px 0;
   text-align: center;
-  padding: 15px 20px;
-  color: rgba(195,7,63,1);
- 
- 
+}
+
+h2 {
+  font-family: "Iceland";
+  font-size: 26px;
+  color: var(--neon-pink);
+  text-shadow: var(--glow-soft);
+  margin-top: 25px;
+  margin-bottom: 10px;
+}
+
+/* === TERMINAL TYPE-IN TITLE EFFECT === */
+.type-boot {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  border-right: 2px solid var(--neon-pink);
+  animation: typeIn 2.4s steps(22, end), cursorBlink 0.8s step-end infinite;
+}
+
+@keyframes typeIn { from { width: 0; } to { width: 100%; } }
+@keyframes cursorBlink {
+  0%, 49% { border-color: var(--neon-pink); }
+  50%, 100% { border-color: transparent; }
+}
+
+/* === ACCORDION === */
+.accordion {
+  width: 100%;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(8px);
+  padding: 25px 0;
+  border: none;
   cursor: pointer;
-  transition: background-color 0.2s linear;
+  border-top: 1px solid var(--neon-pink-soft);
+  text-align: center;
+  transition: 0.3s;
 }
+.accordion:hover { background: rgba(255,255,255,0.05); box-shadow: var(--glow-soft); }
+.accordion.is-open { background: rgba(255,255,255,0.07); }
 
-button.accordion:after {
-  font-family: FontAwesome;
-  content: "\f078";
-  font-family: "fontawesome";
-  font-size: 18px;
-  float: center;
-}
-
-button.accordion.is-open:after {
-  content: "\f077";
-}
-
-button.accordion:hover
-{
-  background-color:rgba(0, 0, 0, 0.19)
-}
-button.accordion.is-open {
-  background-color:rgba(0, 0, 0, 0.19)
-}
-
+/* === ACCORDION CONTENT === */
 .accordion-content {
-  background-color: rgba(255, 255, 255, 0);
-  border-left: 1px solid rgba(245, 245, 245, 0);
-  border-right: 1px solid rgba(245, 245, 245, 0);
-  padding: 0 20px;
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.75s ease-in-out;
+  transition: max-height 0.45s ease-out;
+  border-bottom: 1px solid var(--neon-pink-soft);
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(6px);
+  padding: 0;
 }
-.corner1 {transform: rotate(90deg);
-  position: absolute;
-  top: 0px;
-  left: 150px;
-  
-}
-.corner2 {transform: rotate(180deg);
-  position: absolute;
-  top: 0px;
-  right: 150px;
-  
-}
-.corner3 {transform: rotate(0deg);
-  position: absolute;
-  
-  left: 150px;
-  
-}
-.corner4 {transform: rotate(270deg);
-  position: absolute;
-  
-  right: 150px;
-  
+.accordion.is-open + .accordion-content { padding: 20px 0 40px 0; }
+
+/* === MECHA HOLO PANELS === */
+.mecha-panel {
+  position: relative;
+  padding: 45px 35px;
+  margin: 50px auto;
+  border: 2px solid var(--neon-pink-soft);
+  border-left-width: 6px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(8px);
+  clip-path: polygon(
+    0% 10%, 10% 0%, 90% 0%, 100% 10%,
+    100% 90%, 90% 100%, 10% 100%, 0% 90%
+  );
+  box-shadow: 0 0 25px rgba(195,7,63,0.35);
+  transform-style: preserve-3d;
+  transition: 0.35s cubic-bezier(.25,.46,.45,.94);
 }
 
-img.render {
+.mecha-panel:hover {
+  transform: translateY(-6px) translateZ(18px) rotateX(1deg);
+  box-shadow: 0 0 60px rgba(195,7,63,0.9);
+  border-color: var(--neon-pink);
+  animation: glitch-flicker 0.3s steps(2, jump-end);
+}
+
+/* === HUD LABELS === */
+.hud-label {
+  font-family: "Iceland";
+  font-size: 14px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(195,7,63,0.75);
+  display: block;
+  margin-bottom: 25px;
+  text-shadow: 0 0 8px rgba(195,7,63,0.5);
+  user-select: none;
+}
+.hud-id {
+  position: absolute;
+  top: 14px;
+  right: 22px;
+  font-family: "Iceland";
+  font-size: 13px;
+  color: rgba(195,7,63,0.6);
+  text-shadow: 0 0 8px rgba(195,7,63,0.3);
+  user-select: none;
+}
+
+/* === IFRAME PANELS === */
+iframe {
   width: 100%;
-  height: 100%;
-  cursor: pointer;
+  max-width: 1200px;
+  height: 650px;
+  border: 2px solid var(--neon-pink-soft);
+  border-radius: 14px;
+  display: block;
+  margin: 35px auto;
+  box-shadow: 0 0 35px rgba(195,7,63,0.5);
+  transition: 0.35s;
 }
-.render:hover {
-  opacity: 0,75;
+iframe:hover { box-shadow: 0 0 55px rgba(195,7,63,1); transform: translateY(-4px); }
+
+/* === SOCIAL ICONS === */
+.fa { font-size: 36px; color: var(--neon-pink); transition: 0.3s; }
+.fa:hover { text-shadow: var(--glow); }
+
+/* === CURSOR SYSTEM === */
+body {
+  cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' ... />") 12 12, auto;
+}
+a:hover, button:hover, .accordion:hover, .mecha-panel:hover, iframe:hover {
+  cursor: url("data:image/svg+xml;utf8,\
+<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' ... />") 12 12, pointer;
 }
 
-div.render{ width: 100%;
-  height: 1080px;}
+/* === GLITCH === */
+@keyframes glitch-flicker {
+  0% { opacity: 1; transform: translateX(0); }
+  50% { opacity: 0.75; transform: translateX(-1px); }
+  51% { opacity: 1; transform: translateX(1px); }
+  100% { opacity: 1; }
+}
 
-    
+/* === HOLOGRAM NOISE OVERLAY === */
+.holo-noise {
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  mix-blend-mode: overlay;
+  opacity: 0.12;
+  background-image: url("https://www.transparenttextures.com/patterns/noise.png");
+  animation: holoNoiseShift 6s infinite linear;
+  z-index: 999999;
+}
+@keyframes holoNoiseShift {
+  from { transform: translate(0,0); }
+  to   { transform: translate(100px,60px); }
+}
+
+/* === HOLOGRAPHIC LOGO ANIMATION (SOFT + CLEAN, NO BOX) === */
+@keyframes logoPulse {
+  0%,100% { filter: drop-shadow(0 0 12px var(--neon-pink)); opacity: 0.9; }
+  50%     { filter: drop-shadow(0 0 32px var(--neon-pink)); opacity: 1; }
+}
+
+/* Main Logo SVG Coloring */
+.holo-logo {
+  width: 250px;
+  height: auto;
+  color: var(--neon-pink);
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 22px var(--neon-pink));
+  animation: logoPulse 4s ease-in-out infinite;
+}
+
+/* Halo wrapper (this is now where the glow lives) */
+.holo-logo-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+/* Actual halo glow — now correctly behind SVG */
+.holo-logo-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 50%; left: 50%;
+  width: 350px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background: radial-gradient(
+      circle,
+      rgba(195,7,63,0.35) 0%,
+      rgba(195,7,63,0.14) 45%,
+      transparent 70%
+  );
+  filter: blur(60px);
+  pointer-events: none;
+  animation: haloPulse 6s ease-in-out infinite;
+  z-index: -1;
+}
+
+@keyframes haloPulse {
+  0%,100% { transform: translate(-50%, -50%) scale(1); opacity: 0.85; }
+  50%     { transform: translate(-50%, -50%) scale(1.12); opacity: 1; }
+}
+
+/* === HOLO LOAD SEQUENCE === */
+#holo-load {
+  position: fixed;
+  inset: 0;
+  background: #0d0d0f;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999999;
+  animation: fadeOutLoader 1.6s ease forwards 2s;
+}
+#holo-load img {
+  width: 200px;
+  filter: drop-shadow(0 0 30px var(--neon-pink));
+  animation: logoPulse 2.4s infinite ease-in-out; /* Loader keeps soft pulse only */
+}
+#holo-load span {
+  margin-top: 20px;
+  font-family: "Iceland";
+  font-size: 20px;
+  letter-spacing: 4px;
+  color: var(--neon-pink);
+  opacity: 0.8;
+  animation: cursorBlink 1.2s infinite;
+}
+@keyframes fadeOutLoader { to { opacity: 0; visibility: hidden; } }
+
+/* ✅ Corners removed entirely */
